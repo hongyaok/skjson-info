@@ -10,7 +10,7 @@ test('Next.js dev server starts', async () => {
   let devProcess: ChildProcess | null = null
 
   try {
-    devProcess = spawn('yarn', ['dev'], {
+    devProcess = spawn('npm', ['run', 'dev'], {
       cwd: path.resolve(__dirname, '..'),
       stdio: 'pipe',
       shell: true,
