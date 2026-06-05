@@ -8,7 +8,7 @@
     "start": "next start",
     "serve": "NODE_ENV=production next start --port 8151",
     "lint": "biome check .",
-    "test": "vitest"
+    "test": "vitest run"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
