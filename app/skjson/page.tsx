@@ -46,7 +46,7 @@ export default function Page() {
         <FadeSection className="gap-4">
           <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-foreground"><LogoText text="{skjson}" /></h1>
           <p className="text-xl text-muted-foreground max-w-3xl">
-            is a pure Python tool to export scikit-learn models to standard JSON. Compatible with Joblib and ONNX natively.
+            is a Python library that exports scikit-learn models to standard JSON. Compatible with Joblib and ONNX natively.
           </p>
           <div className="flex gap-4 mt-2 flex-wrap">
             <a href="https://github.com/hongyaok/skjson" target="_blank" rel="noreferrer" className="w-fit">

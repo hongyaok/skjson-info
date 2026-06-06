@@ -47,7 +47,7 @@ export default function Page() {
         <FadeSection className="gap-4">
           <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-foreground"><LogoText text="{skjson-js}" /></h1>
           <p className="text-xl text-muted-foreground max-w-3xl">
-            Zero dependencies. 100% mathematical parity. Run your JSON models natively in any JS environment.
+            Zero dependencies. 100% mathematical accuracy (i think). Run your JSON models natively in any JS environment.
           </p>
           <div className="flex gap-4 mt-2 flex-wrap">
             <a href="https://github.com/hongyaok/skjson-js" target="_blank" rel="noreferrer" className="w-fit">

@@ -115,7 +115,7 @@ export default function Page() {
             </a>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-4 w-[90%] sm:w-full max-w-lg mx-auto justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 mt-4 w-[90%] sm:w-full max-w-3xl mx-auto justify-center">
             <Link href="/skjson" className="flex-1">
               <Button size="lg" className="w-full h-14 text-lg" withArrow>
                 Export with skjson
@@ -126,6 +126,11 @@ export default function Page() {
                 Infer with skjson-js
               </Button>
             </Link>
+            {/* <Link href="/skjson-visualise" className="flex-1">
+              <Button size="lg" variant="outline" className="w-full h-14 text-lg" withArrow>
+                Visualise models
+              </Button>
+            </Link> */}
           </div>
         </FadeSection>
 
@@ -267,7 +272,7 @@ const preds = predictor.predict(new_data)`
 
         {/* Explore Links */}
         <FadeSection className="mt-10 gap-6">
-          <div className="flex flex-col sm:flex-row gap-4 w-[90%] sm:w-full max-w-lg mx-auto justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 w-[90%] sm:w-full max-w-3xl mx-auto justify-center">
             <Link href="/skjson" className="flex-1">
               <Button size="lg" className="w-full h-14 text-lg" withArrow>
                 Explore skjson
@@ -276,6 +281,11 @@ const preds = predictor.predict(new_data)`
             <Link href="/skjson-js" className="flex-1">
               <Button size="lg" variant="outline" className="w-full h-14 text-lg" withArrow>
                 Explore skjson-js
+              </Button>
+            </Link>
+            <Link href="/skjson-visualise" className="flex-1">
+              <Button size="lg" variant="outline" className="w-full h-14 text-lg" withArrow>
+                skjson-visualise (coming soon)
               </Button>
             </Link>
           </div>
