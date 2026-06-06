@@ -16,7 +16,7 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <div className="flex items-center space-x-2 opacity-50 bg-secondary/50 px-3 py-1.5 rounded-full">
-        <Switch disabled checked={false} className="data-[state=checked]:bg-yellow-400 data-[state=unchecked]:bg-yellow-400" />
+        <Switch disabled checked={false} className="data-[checked]:!bg-[#facc15] data-[unchecked]:!bg-[#facc15] data-[state=checked]:!bg-[#facc15] data-[state=unchecked]:!bg-[#facc15]" />
       </div>
     )
   }
@@ -29,7 +29,7 @@ export function ThemeToggle() {
         id="theme-mode" 
         checked={isDark} 
         onCheckedChange={(checked) => setTheme(checked ? 'dark' : 'light')} 
-        className="data-[state=checked]:bg-yellow-400 data-[state=unchecked]:bg-yellow-400 shadow-sm"
+        className="data-[checked]:!bg-[#facc15] data-[unchecked]:!bg-[#facc15] data-[state=checked]:!bg-[#facc15] data-[state=unchecked]:!bg-[#facc15] shadow-sm"
       />
     </div>
   )

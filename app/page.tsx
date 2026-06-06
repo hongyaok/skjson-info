@@ -4,11 +4,11 @@ import * as React from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { ServerOff, Zap, CheckCircle, Globe, SearchCode, ArrowRight, LayoutDashboard } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/components/8starlabs-ui/button'
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { LogoText } from '@/components/LogoText'
-import { StatusIndicator } from '@/components/ui/status-indicator'
+import StatusIndicator from '@/components/8starlabs-ui/status-indicator'
 
 const TIMELINE_DATA = [
   { name: "skjson", status: "active", desc: "A pure Python tool to export scikit-learn models to standard JSON." },
@@ -59,7 +59,7 @@ export default function Page() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col overflow-x-hidden">
+    <div className="min-h-screen text-foreground flex flex-col overflow-x-hidden">
       {/* Header */}
       <header className="w-full px-6 py-4 fixed top-0 left-0 right-0 flex justify-between items-center z-50 bg-background/80 backdrop-blur-md">
         <h3 className="text-xl font-black tracking-tight text-foreground">
@@ -117,15 +117,13 @@ export default function Page() {
 
           <div className="flex flex-col sm:flex-row gap-4 mt-4 w-[90%] sm:w-full max-w-lg mx-auto justify-center">
             <Link href="/skjson" className="flex-1">
-              <Button size="lg" className="w-full gap-2 h-14 text-lg">
+              <Button size="lg" className="w-full h-14 text-lg" withArrow>
                 Export with skjson
-                <ArrowRight className="h-5 w-5" />
               </Button>
             </Link>
             <Link href="/skjson-js" className="flex-1">
-              <Button size="lg" variant="outline" className="w-full gap-2 h-14 text-lg">
+              <Button size="lg" variant="outline" className="w-full h-14 text-lg" withArrow>
                 Infer with skjson-js
-                <ArrowRight className="h-5 w-5" />
               </Button>
             </Link>
           </div>
@@ -271,17 +269,26 @@ const preds = predictor.predict(new_data)`
         <FadeSection className="mt-10 gap-6">
           <div className="flex flex-col sm:flex-row gap-4 w-[90%] sm:w-full max-w-lg mx-auto justify-center">
             <Link href="/skjson" className="flex-1">
-              <Button size="lg" className="w-full gap-2 h-14 text-lg">
+              <Button size="lg" className="w-full h-14 text-lg" withArrow>
                 Explore skjson
-                <ArrowRight className="h-5 w-5" />
               </Button>
             </Link>
             <Link href="/skjson-js" className="flex-1">
-              <Button size="lg" variant="outline" className="w-full gap-2 h-14 text-lg">
+              <Button size="lg" variant="outline" className="w-full h-14 text-lg" withArrow>
                 Explore skjson-js
-                <ArrowRight className="h-5 w-5" />
               </Button>
             </Link>
+          </div>
+        </FadeSection>
+
+        {/* Contact Me */}
+        <FadeSection className="mt-8 mb-4">
+          <div className="flex justify-center w-full">
+            <a href="https://github.com/hongyaok" target="_blank" rel="noreferrer">
+              <Button variant="outline" size="lg" withArrow className="h-12 px-8">
+                If you wish to contribute, contact me
+              </Button>
+            </a>
           </div>
         </FadeSection>
 

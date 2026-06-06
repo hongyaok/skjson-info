@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { ThemeProvider } from 'next-themes'
 import './globals.css'
+import { BackgroundWrapper } from '@/components/BackgroundWrapper'
 
 export const metadata: Metadata = {
   title: 'skjson | Train in Python. Run in the browser. No backend needed.',
@@ -13,7 +14,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <body className="lowercase">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
+          <BackgroundWrapper>
+            {children}
+          </BackgroundWrapper>
         </ThemeProvider>
       </body>
     </html>
