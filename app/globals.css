@@ -57,3 +57,139 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ─── Animated gradient text ─── */
+.animate-vsl-gradient {
+  background: linear-gradient(to right, #ff007f, #ffaa00, #00ffaa, #00aaff, #ff007f);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shine 3s linear infinite;
+  display: inline-block;
+}
+
+/* ─── Rainbow hover button ─── */
+.btn-rainbow-hover {
+  position: relative;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.btn-rainbow-hover::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ff007f, #ffaa00, #00ffaa, #00aaff, #ff007f);
+  background-size: 200% auto;
+  animation: shine 3s linear infinite;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  filter: blur(8px);
+}
+.btn-rainbow-hover::after {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #ff007f, #ffaa00, #00ffaa, #00aaff, #ff007f);
+  background-size: 200% auto;
+  animation: shine 3s linear infinite;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.btn-rainbow-hover:hover::before,
+.btn-rainbow-hover:hover::after {
+  opacity: 1;
+}
+.btn-rainbow-hover:hover {
+  color: white;
+  border-color: transparent;
+}
+
+/* ─── Glassmorphic card ─── */
+.glass-card {
+  background: hsl(var(--card) / 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid hsl(var(--border) / 0.5);
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.glass-card:hover {
+  border-color: hsl(var(--primary) / 0.3);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15), 0 0 0 1px hsl(var(--primary) / 0.1);
+  transform: translateY(-4px);
+}
+
+/* ─── Step connector ─── */
+.step-connector {
+  width: 2px;
+  height: 48px;
+  background: linear-gradient(to bottom, hsl(var(--primary) / 0.5), hsl(var(--primary) / 0.15));
+  margin: 0 auto;
+}
+
+/* ─── Code install block ─── */
+.install-block {
+  background: hsl(220 13% 8%);
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 14px;
+  color: hsl(var(--muted-foreground));
+  position: relative;
+  overflow: hidden;
+}
+.install-block .prefix {
+  color: #ffaa00;
+  user-select: none;
+}
+.install-block .pkg {
+  color: #f8f9fa;
+  font-weight: 600;
+}
+
+/* ─── Animations ─── */
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-2px); }
+  20%, 40%, 60%, 80% { transform: translateX(2px); }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
