@@ -92,7 +92,7 @@ export function DotPattern({
                 dots.push({
                     x: offsetX + col * cellSize,
                     y: offsetY + row * cellSize,
-                    baseOpacity: 0.3 + Math.random() * 0.2,
+                    baseOpacity: 0.15 + Math.random() * 0.15,
                 })
             }
         }
@@ -200,16 +200,33 @@ export function DotPattern({
             }
         }
 
+        const handleTouchMove = (e: TouchEvent) => {
+            const canvas = canvasRef.current
+            if (!canvas || e.touches.length === 0) return
+            const rect = canvas.getBoundingClientRect()
+            const touch = e.touches[0]
+            mouseRef.current = {
+                x: touch.clientX - rect.left,
+                y: touch.clientY - rect.top,
+            }
+        }
+
         const handleMouseLeave = () => {
             mouseRef.current = { x: -1000, y: -1000 }
         }
 
         window.addEventListener("mousemove", handleMouseMove)
         window.addEventListener("mouseleave", handleMouseLeave)
+        window.addEventListener("touchmove", handleTouchMove)
+        window.addEventListener("touchend", handleMouseLeave)
+        window.addEventListener("touchcancel", handleMouseLeave)
 
         return () => {
             window.removeEventListener("mousemove", handleMouseMove)
             window.removeEventListener("mouseleave", handleMouseLeave)
+            window.removeEventListener("touchmove", handleTouchMove)
+            window.removeEventListener("touchend", handleMouseLeave)
+            window.removeEventListener("touchcancel", handleMouseLeave)
         }
     }, [])
 

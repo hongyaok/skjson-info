@@ -111,25 +111,109 @@
 
 /* ─── Glassmorphic card ─── */
 .glass-card {
-  background: hsl(var(--card) / 0.5);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid hsl(var(--border) / 0.5);
+  background: hsl(var(--card) / 0.4);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid hsl(var(--border) / 0.3);
   border-radius: 16px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 24px -4px rgba(0,0,0,0.05);
+}
+:root .glass-card {
+  background: hsl(var(--card) / 0.6);
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 4px 24px -4px rgba(0,0,0,0.05), inset 0 1px 1px rgba(255,255,255,0.4);
+}
+.dark .glass-card {
+  background: hsl(var(--card) / 0.3);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 32px -4px rgba(0,0,0,0.3), inset 0 1px 1px rgba(255,255,255,0.05);
 }
 .glass-card:hover {
-  border-color: hsl(var(--primary) / 0.3);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.15), 0 0 0 1px hsl(var(--primary) / 0.1);
-  transform: translateY(-4px);
+  border-color: hsl(var(--border) / 0.5);
+  box-shadow: 0 16px 40px -8px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
 }
 
 /* ─── Step connector ─── */
 .step-connector {
   width: 2px;
   height: 48px;
-  background: linear-gradient(to bottom, hsl(var(--primary) / 0.5), hsl(var(--primary) / 0.15));
+  background: linear-gradient(to bottom, hsl(var(--primary) / 0.6), hsl(var(--primary) / 0.2));
   margin: 0 auto;
+}
+:root .step-connector {
+  background: linear-gradient(to bottom, #d4a017, #d4a01733);
+}
+
+/* ─── Hero glow ─── */
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  background: radial-gradient(ellipse, rgba(250, 204, 21, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+  animation: hero-pulse 4s ease-in-out infinite;
+}
+.dark .hero-glow {
+  background: radial-gradient(ellipse, rgba(250, 204, 21, 0.04) 0%, transparent 70%);
+}
+
+@keyframes hero-pulse {
+  0%, 100% { opacity: 0.7; transform: translate(-50%, -60%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -60%) scale(1.05); }
+}
+
+/* ─── Stats strip ─── */
+.stats-strip {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  background: hsl(var(--card) / 0.6);
+  border: 1px solid hsl(var(--border) / 0.4);
+  backdrop-filter: blur(12px);
+  min-width: 140px;
+}
+.stat-item .stat-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #facc15, #f59e0b);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.stat-item .stat-label {
+  font-size: 0.8rem;
+  color: hsl(var(--muted-foreground));
+  font-weight: 500;
+}
+
+/* ─── Demo section ─── */
+.demo-section-glow {
+  position: relative;
+}
+.demo-section-glow::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #facc1533, #f59e0b22, transparent);
+  z-index: -1;
+  filter: blur(20px);
 }
 
 /* ─── Code install block ─── */
@@ -192,4 +276,28 @@
 
 .animate-fade-in-up {
   animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* ─── CTA premium button ─── */
+.btn-cta-gradient {
+  background: hsl(var(--foreground));
+  color: hsl(var(--background));
+  font-weight: 500;
+  border: 1px solid hsl(var(--border) / 0.1);
+  box-shadow: 0 4px 14px 0 rgba(0,0,0,0.1);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 9999px;
+}
+.btn-cta-gradient:hover {
+  background: hsl(var(--foreground) / 0.9);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  transform: scale(1.02);
+}
+.dark .btn-cta-gradient {
+  background: hsl(var(--foreground));
+  color: hsl(var(--background));
+  box-shadow: 0 4px 14px 0 rgba(255,255,255,0.05);
+}
+.dark .btn-cta-gradient:hover {
+  box-shadow: 0 6px 20px rgba(255,255,255,0.1);
 }
